@@ -14,17 +14,11 @@
 # back option for submenus
 # rules in game menu'
 
-def exit
-	sleep 2
-	puts ""
-	puts "Thanks for coming! Hope you enjoyed your time at the Casino"
-	puts ""
-	exit 0
-end
 
 def rules_slots
 	puts "You win when you get: three of <3, $, ^_^. Or one of each."
-	sleep 5
+	puts "Press Enter to Continue."
+	gets
 	slots
 end
 
@@ -37,7 +31,9 @@ def high_low_rules
 
 	If you win the first bet, you can continue to play with the amount you won 
 	plus your original bet, or you can collect your winnings and start afresh."
-	@num
+	puts "Press Enter to Continue."
+	gets
+	high_low
 end
 
 
@@ -50,7 +46,11 @@ def high_low
 	when 3
 		bankroll
 	when 4
-		exit
+		exit_now
+	else
+		puts "Not a Valid entry"
+		#display menu
+		high_low
 	end
 end
 
@@ -64,13 +64,17 @@ def slots
 	when 3
 		bankroll
 		puts "Press Enter to go back to Slots Menu"
-		@num
+		@let
 		slots
 	when 4
 		main_menu
 		main_nav
 	when 5
-		exit
+		exit_now
+	else 
+		puts "Not a Valid entry"
+		#display menu
+		slots
 	end
 end
 
@@ -85,28 +89,40 @@ def game_room
 	when 4 
 		back_main_menu
 	when 5 
-		exit	
+		exit_now
+	else 
+		puts "Not a Valid entry"
+		#display menu
+		game_room	
 	end
 end
 
+def exit_now
+	sleep 1
+	puts ""
+	puts "Thanks for coming! Hope you enjoyed your time at the Casino"
+	puts ""
+	exit 0
+end
 
 
 def main_nav
-@num = gets.to_i
+	@num = gets.to_i
 	case @num
 		when 1
 			game_room
 		when 2
 			bankroll
 		when 3
-			exit
+			exit_now
 		else 
 			puts "Not a Valid entry"
+			#display menu
+			main_nav
 	end
 end
 
 
-
-
+main_nav
 
 
