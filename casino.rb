@@ -45,6 +45,9 @@ def high_low
 		high_low_rules
 	when 3
 		bankroll
+		puts "Press Enter to go back to Slots Menu"
+		gets
+		high_low
 	when 4
 		exit_now
 	else
@@ -64,7 +67,7 @@ def slots
 	when 3
 		bankroll
 		puts "Press Enter to go back to Slots Menu"
-		@let
+		gets
 		slots
 	when 4
 		main_menu
@@ -86,8 +89,12 @@ def game_room
 		high_low
 	when 3
 		bankroll
+		puts "Press Enter to go back to Slots Menu"
+		gets
+		game_room
 	when 4 
-		back_main_menu
+		main_menu
+		#display menu
 	when 5 
 		exit_now
 	else 
@@ -113,6 +120,9 @@ def main_nav
 			game_room
 		when 2
 			bankroll
+			puts "Press Enter to go back to Slots Menu"
+			gets
+			main_nav
 		when 3
 			exit_now
 		else 
