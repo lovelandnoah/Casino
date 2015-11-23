@@ -23,10 +23,36 @@ def exit
 end
 
 def rules_slots
-	puts " You win when you get: three of <3, $, ^_^. Or one of each."
-
+	puts "You win when you get: three of <3, $, ^_^. Or one of each."
+	sleep 5
+	slots
 end
 
+def high_low_rules
+	puts "This game is played with a full deck of 52 cards, minus the jokers. 
+	The player plays against the dealer. The player  makes his wager, 
+	and the dealer is asked to deal. After receiving a card, the player has 
+	to say if the following card will be higher or lower in value. 
+	If your prediction is right, the player wins!
+
+	If you win the first bet, you can continue to play with the amount you won 
+	plus your original bet, or you can collect your winnings and start afresh."
+	@num
+end
+
+
+def high_low
+	case @num
+	when 1
+		high_low_game
+	when 2
+		high_low_rules
+	when 3
+		bankroll
+	when 4
+		exit
+	end
+end
 
 
 def slots
@@ -37,6 +63,9 @@ def slots
 		rules_slots
 	when 3
 		bankroll
+		puts "Press Enter to go back to Slots Menu"
+		@num
+		slots
 	when 4
 		main_menu
 		main_nav
